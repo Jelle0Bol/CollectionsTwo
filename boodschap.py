@@ -35,13 +35,13 @@ def showBoodschappen():
         print("* " + i)
 
 def addItem():
-    item = input("Typ je item die je wilt toevoegen in het boodschappenlijstje hier : ")
+    item = input("Typ je item die je wilt toevoegen in het boodschappenlijstje hier : ").lower()
     boodschappenList.append(item)
     print()
     print(item + " is toegevoegd aan het boodschappenlijstje")
 
 def removeItem():
-    item = input("Typ je item die je wilt weghalen van het boodschappenlijstje : ")
+    item = input("Typ je item die je wilt weghalen van het boodschappenlijstje : ").lower()
     boodschappenList.remove(item)
     print()
     print(item + " is weggehaald van het boodschappenlijstje")
