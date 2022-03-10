@@ -4,13 +4,13 @@ def singleGame():
     roll1 = roll()
     print(format("Je rolt: ", '64s'), roll1)
     print("")
-    holdPrompt = input("Wil je dobbelstenen opnieuw rollen? (y for HITME, n for HOLD): ")
+    holdPrompt = input("Wil je dobbelstenen opnieuw rollen? (y voor JA, n voor NEE): ")
     print("")
     holdPrompt.replace(" ", "")
     holdPrompt.lower()
     while holdPrompt != "y" and holdPrompt != "n":
-        print("INCORRECT INPUT\n")
-        holdPrompt = input("Swap any dice? (y for HITME, n for HOLD): ")
+        print("INCORRECTE INPUT\n")
+        holdPrompt = input("Dobbels swappen? (y voor JA, n voor NEE): ")
         print("")
         holdPrompt.replace(" ", "")
         holdPrompt.lower()
@@ -18,15 +18,15 @@ def singleGame():
     if holdPrompt == "y":
         roll2 = swap(roll1)
         print("")
-        print("Swapping:", roll2[1])
+        print("Verwissellen:", roll2[1])
         print("")
-        print(format("You rolled: ", '64s'), roll2[0])
+        print(format("Je rolt: ", '64s'), roll2[0])
         print("")
-        holdPrompt2 = input("Swap any dice? (y for HITME, n for HOLD): ")
+        holdPrompt2 = input("Dobbels swappen? (y voor JA, n voor NEE): ")
         print("")
         while holdPrompt2 != "y" and holdPrompt2 != "n":
-            print("INCORRECT INPUT\n")
-            holdPrompt2 = input("Swap any dice? (y for HITME, n for HOLD): ")
+            print("INCORRECTE INPUT\n")
+            holdPrompt2 = input("Dobbels swappen? (y voor JA, n voor NEE): ")
             print("")
             holdPrompt2.replace(" ", "")
             holdPrompt2.lower()
@@ -34,9 +34,9 @@ def singleGame():
             swapPrint = []
             roll3 = swap(roll2[0])
             print("")
-            print("Swapping:", roll3[1])
+            print("Verwissellen:", roll3[1])
             print("")
-            print(format("You rolled: ", '64s'), roll3[0])
+            print(format("Je rolt: ", '64s'), roll3[0])
             print("")
             stat = rollType(roll3[0])
         else:
@@ -57,7 +57,7 @@ def roll():
 
 def swap(diceList):
     valid = True
-    swapDice = input("Type position of each die you'd like to swap (1-5): ")
+    swapDice = input("Typ de positie van de dobbels die je opnieuw wilt gooien (1-5): ")
     swapDice = swapDice.replace(",", "")
     swapDice = swapDice.replace(" ", "")
     swapDiceList = []
@@ -76,9 +76,9 @@ def swap(diceList):
    
     while valid == False:
         print("")
-        print("INCORRECT INPUT")
+        print("INCORRECTE INPUT")
         print("")
-        swapDice = input("Type position of each die you'd like to swap (1-5): ")
+        swapDice = input("Typ de positie van de dobbels die je opnieuw wilt gooien (1-5): ")
         swapDice = swapDice.replace(",", "")
         swapDice = swapDice.replace(" ", "")
         swapDiceList = []
@@ -108,7 +108,7 @@ def swap(diceList):
         diceList.pop(x)
         diceList.insert(x, randint(1, 6))
         
-    # returns modified list at index [0] and dice to be swapped at [1]
+    # geeft aangepaste index terug [0] en dobbels die geswapped worden [1]
     return diceList, swapDiceList
 
 def rollType(diceList):
@@ -138,13 +138,13 @@ def rollType(diceList):
         fourOfKind = True
         print(format("FOUR OF A KIND", '>80s'))
     elif len(diceListNew) == 3:
-        print(format("NOTHING SPECIAL", '>80s'))
+        print(format("NIKS SPECIAAL", '>80s'))
     elif len(diceListNew) == 4:
         if diceListNew[-2] == diceListNew[-1] -1 and diceListNew[-3] == diceListNew[-2] - 1 and diceListNew[-4] == diceListNew[-3] - 1:
             smallStraight = True
             print(format("SMALL STRAIGHT", '>80s'))
         else:
-            print(format("NOTHING SPECIAL", '>80s'))
+            print(format("NIKS SPECIAAL", '>80s'))
     elif len(diceListNew) == 5:
         if diceListNew[-2] == diceListNew[-1] - 1 and diceListNew[-3] == diceListNew[-2] - 1 and diceListNew[-4] == diceListNew[-3] - 1 and diceListNew[-5] == diceListNew[-4] - 1:
             largeStraight = True
@@ -156,7 +156,7 @@ def rollType(diceList):
             smallStraight = True
             print(format("SMALL STRAIGHT", '>80s'))
         else:
-            print(format("NOTHING SPECIAL", '>80s'))
+            print(format("NIKS SPECIAAL", '>80s'))
     else:
         pass
     result = yahtzee, fullHouse, smallStraight, largeStraight, fourOfKind, threeOfKind
@@ -180,7 +180,7 @@ def main():
     print("")
     print("-" * 80)
     print("")
-    print(format("Welcome to Fake Yahtzee!", '61s'), "Written by Coleo94")
+    print(format("Welkom bij Yachtzee", '61s'), )
     print("")
     print("-" * 80)
     print("")
@@ -207,17 +207,17 @@ def main():
         pass
     print("")
     gameCount = 1
-    print("END OF GAME", gameCount)
+    print("EINDE VAN GAME", gameCount)
     print("-" * 80)
     print("")
-    gamesPrompt = input("Play another game? (y for yes, n for no): ")
+    gamesPrompt = input("Opnieuw spelen? (y voor JA, n voor NEE) : ")
     gamesPrompt.strip()
     gamesPrompt.lower()
     while gamesPrompt != "y" and gamesPrompt != "n":
         print("")
         print("INCORRECT INPUT")
         print("")
-        gamesPrompt = input("Play another game? (y for yes, n for no): ")
+        gamesPrompt = input("Opnieuw spelen? (y voor JA, n voor NEE): ")
         gamesPrompt.strip()
         gamesPrompt.lower()
     print("")
@@ -248,7 +248,7 @@ def main():
         else:
             pass
         print("")
-        print(format("END OF GAME"), gameCount)
+        print(format("EINDE VAN GAME"), gameCount)
         print("-" * 80)
         print("")
         gamesPrompt = input("Play another game? (y for yes, n for no): ")

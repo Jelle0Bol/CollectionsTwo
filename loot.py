@@ -34,7 +34,8 @@ def loting():
             else:
                 compleetlootje.append(randompersoon1)
                 compleetlootje2.append(randompersoon2)
-                print(randompersoon1 + "-" + randompersoon2)
+                print("")
+                print(randompersoon1 + " - " + randompersoon2)
                 x+=1
 
 
@@ -72,7 +73,7 @@ def lootjesOpnieuw():
             lootjesOpnieuw()
 
 while minimaal <= 1:
-    namenVoorList = input("Welke namen wil je in de list zetten? Minimaal 2! : ")
+    namenVoorList = input("Welke namen wil je in de lijst zetten? Minimaal 2! : ")
     if namenVoorList in namenlootje:
         print("Deze naam zit al in de list")
         lootjesOpnieuw()
